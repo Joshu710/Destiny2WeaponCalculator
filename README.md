@@ -1,20 +1,20 @@
-# How to run
+# About
 
-## 1. Setup database
+This was a group project for "Introduction to Graphical User Interface Programming" and "Introduction to Databases" at the Unversity of Maryland, Baltimore County.
 
-Must have MySQL installed
-We did all development locally so each of our machines were essentially MySQL servers we connect to.
-
-### Steps
-1. Create a database named `d2project`.
-2. Created a user named `d2project` with password `Hths1234!` which can access the previously made database.
+This project is a stat calculator for the online game Destiny 2 where you can see stat changes for weapons given perks selected in each slot.
 
 
-## 2. Django Backend
-1. Install all necessary Python packages with `pip install -r requirements.txt`.
-2. Navigate to the `backend` directory in a terminal and do `python manage.py runserver` (may have to do `python manage.py makemigrations` and `python manage.py migrate` beforehand).
+# Technical Details
 
-## 3. React Frontend
-1. Navigate to the `frontend` directory.
-2. Install all necessary Node packages with `npm install`.
-3. Run the frontend with `npm run dev`.
+For this project we used MySQL as our database platform which was then connect to our Django backend. This backend was treated as a REST Framework in which our React.js frontend called upon for data.
+
+# How to Run
+
+We originally created to this project to run locally, however, I recently Dockerized the project using three images for MySQL, Django, and Node.js.
+
+Docker-compose was then used to combine the three images.
+
+`docker-compose --build` to build the images.
+`docker-compose up` to create three containers and run them.
+`docker-compose down` to stop and remove all containers. 
