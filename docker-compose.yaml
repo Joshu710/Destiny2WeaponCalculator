@@ -1,0 +1,61 @@
+
+
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    depends_on:
+      - db
+      - backend
+    networks:
+      db_network:
+        ipv4_address: 192.168.10.40
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      db: 
+        condition: service_healthy
+    networks:
+      db_network:
+        ipv4_address: 192.168.10.41
+
+  db:
+    container_name: db_django
+    image: "mysql:8.4.0"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "Hths1234"
+      MYSQL_DATABASE: "d2project"
+      MYSQL_USER: "django"
+      MYSQL_PASSWORD: "Hths1234"
+      MYSQL_ROOT_HOST: "%"
+    expose:
+      - 3306
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql:/var/lib/mysql
+    networks:
+      db_network:
+        ipv4_address: 192.168.10.42
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping"]
+
+
+networks:
+  db_network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.10.0/24
+
+

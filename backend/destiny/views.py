@@ -10,9 +10,9 @@ import mysql.connector
 @api_view(["GET"])
 def search_weapons(request,search_text):
     dataBase = mysql.connector.connect(
-        host ="localhost",
-        user ="d2project",
-        passwd ="Hths1234!",
+        host ="db_django",
+        user ="root",
+        passwd ="Hths1234",
         database = "d2project"
     )
 
@@ -29,9 +29,9 @@ def search_weapons(request,search_text):
 @api_view(["GET"])
 def search_perks(request,search_text):
     dataBase = mysql.connector.connect(
-        host ="localhost",
-        user ="d2project",
-        passwd ="Hths1234!",
+        host ="db_django",
+        user ="root",
+        passwd ="Hths1234",
         database = "d2project"
     )
 
@@ -48,9 +48,9 @@ def search_perks(request,search_text):
 @api_view(["GET"])
 def all_perks(request):
     dataBase = mysql.connector.connect(
-        host ="localhost",
-        user ="d2project",
-        passwd ="Hths1234!",
+        host ="db_django",
+        user ="root",
+        passwd ="Hths1234",
         database = "d2project"
     )
 
@@ -65,9 +65,9 @@ def all_perks(request):
 @api_view(["GET"])
 def perk_weapons(request,id):
     dataBase = mysql.connector.connect(
-        host ="localhost",
-        user ="d2project",
-        passwd ="Hths1234!",
+        host ="db_django",
+        user ="root",
+        passwd ="Hths1234",
         database = "d2project"
     )
     cursor = dataBase.cursor()
@@ -83,9 +83,9 @@ def perk_weapons(request,id):
 def all_weapons(request):
 
     dataBase = mysql.connector.connect(
-        host ="localhost",
-        user ="d2project",
-        passwd ="Hths1234!",
+        host ="db_django",
+        user ="root",
+        passwd ="Hths1234",
         database = "d2project"
     )
 
@@ -101,9 +101,9 @@ def all_weapons(request):
 def get_weapon_data(request,id,table):
     try:
         dataBase = mysql.connector.connect(
-            host ="localhost",
-            user ="d2project",
-            passwd ="Hths1234!",
+            host ="db_django",
+            user ="root",
+            passwd ="Hths1234",
             database = "d2project"
         )
         cursor = dataBase.cursor(dictionary=True)

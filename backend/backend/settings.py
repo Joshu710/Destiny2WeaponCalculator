@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-7ca+@!p83b2)uv54*f&jo7@k$3tgz75uk&f(&)!&7_6h&7-uu5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["192.168.10.41"]
 
 
 # Application definition
@@ -81,10 +81,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'd2project',
-        'USER': 'd2project',
-        'PASSWORD': 'Hths1234!',
-        'HOST':'localhost',
-        'PORT':'3306',
+        'USER': 'django',
+        'PASSWORD': 'Hths1234',
+        'HOST':'db_django',
     }
 }
 
@@ -133,4 +132,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:5173',
+    'http://192.168.10.40:5173'
 )

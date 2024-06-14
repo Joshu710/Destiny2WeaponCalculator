@@ -37,7 +37,7 @@ function Results(props) {
         ext = "perk";
       }
       const response = await axios.get(
-        `http://localhost:8000/api/${ext}/${term}/`
+        `http://192.168.10.41:8000/api/${ext}/${term}/`
       );
       setSearchResults(response.data.data);
       console.log(JSON.stringify(response, null, 2));
@@ -66,7 +66,7 @@ function Results(props) {
     event.preventDefault();
     try {
       const response = await axios.get(
-        `http://localhost:8000/api/perk_weapons/${id}/`
+        `http://192.168.10.41:8000/api/perk_weapons/${id}/`
       );
       setSearchResults(response.data.perk_weapons);
       console.log(JSON.stringify(response, null, 2));

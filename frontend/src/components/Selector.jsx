@@ -71,7 +71,7 @@ function Selector(props) {
 
     try {
       const response = await axios.get(
-        `http://localhost:8000/api/get-weapon-data/${props.weapon}/${props.table}/`
+        `http://192.168.10.41:8000/api/get-weapon-data/${props.weapon}/${props.table}/`
       );
       setWeaponData(response.data.weapon_data[0]);
       setPerks(response.data.perk_data);
